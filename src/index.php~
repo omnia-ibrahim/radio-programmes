@@ -34,11 +34,23 @@
      </div>
    </div>
   <div class='container' id='main_content'>
+
      <h1> Search Results </h1>
      <div class='search'>
+         <form action="welcome.php" method="post">
         <input id="search_input" class="search_input" type="search" placeholder="Search for a programme title" name="q">
+       <button class="search_button" type="submit" name='submit' value='submit'>
+        </form>
      </div>
+
+        <?php include('code.php');?>
   </div>
-<?php include 'code.php';?>
+
+ <footer>
+    <div class='container'>
+   Copyright © 2016 BBC.
+     </div>
+ </footer>
+
 </body>
 </html>

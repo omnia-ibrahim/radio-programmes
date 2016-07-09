@@ -7,7 +7,7 @@ body {
   background: 1px solid #404040;
 }
 
-a, p, h1 {
+a, p, h1, h2, h4, span {
   color: white;
 }
 
@@ -23,6 +23,20 @@ header {
   padding: 8px; 
 }
 
+li {
+  padding: 15px;
+  list-style: none;
+  border-bottom: 1px solid #4d4d4d;
+}
+
+li:hover {
+  background: rgba(245, 73, 151, 0.25) none repeat scroll 0 0;
+  border: 1px solid #e6e6e6 ;
+}
+
+h4:hover {
+  color: #f54997;
+}
 .search {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -38,16 +52,37 @@ header {
 }
 
 .search_input {
-  background: transparent none repeat scroll 0 0;
+    background: transparent none repeat scroll 0 0;
     border: medium none;
     color: #efefef;
     font-size: 1.2em;
     padding: 8px;
-    width: 100%;
+  display: inline-block;
+    width: 90%;
+}
+
+.search_button {
+   background: transparent none repeat scroll 0 0;
+    color: #efefef;
+    display: inline-block;
+    text-align: right;
+    width: 10%;
+}
+
+.episodes_list h5 {
+  color: #f54997;
+}
+.episodes_list span {
+   font-size: 10px;
+   color: white;
 }
 
 footer {
   background: #212121 none repeat scroll 0 0;
   border-top: 1px solid #666;
   color: white;
+  padding: 15px;
+  text-align: center;
 }
+
+
