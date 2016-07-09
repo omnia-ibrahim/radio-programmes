@@ -7,17 +7,25 @@ $(function() {
         $(this).addClass('hide_episodes');
         $(this).removeClass('show_episodes');
         $(this).next().show();
-        
-       $(".hide_episodes").click(function(){
-  
+$(".hide_episodes").click(function(){
+      alert('sssss');
         $(this).text("Show available episodes");
         $(this).addClass('show_episodes');
         $(this).removeClass('hide_episodes');
         $(this).next().hide();
         return false;
-       });
+    });
+
 
         return false;
     });
-   
+    $(".hide_episodes").click(function(){
+      alert('sssss');
+        $(this).text("Show available episodes");
+        $(this).addClass('show_episodes');
+        $(this).removeClass('hide_episodes');
+        $(this).next().hide();
+        return false;
+    });
+
   });

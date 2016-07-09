@@ -26,12 +26,14 @@ header {
 li {
   padding: 15px;
   list-style: none;
-  border-bottom: 1px solid #4d4d4d;
-}
 
+}
+li#episodes_li {
+    border-top: 1px solid #4d4d4d;
+}
 li:hover {
   background: rgba(245, 73, 151, 0.25) none repeat scroll 0 0;
-  border: 1px solid #e6e6e6 ;
+  border-top: 1px solid #666;
 }
 
 h4:hover {
@@ -63,16 +65,22 @@ h4:hover {
 
 .search_button {
    background: transparent none repeat scroll 0 0;
-    border: medium none;
     color: #efefef;
     display: inline-block;
     text-align: right;
     width: 10%;
 }
 
-.episodes_list h5 {
+.episodes_list h5, 
+.show_episodes,
+.hide_episodes {
   color: #f54997;
 }
+
+h5:hover {
+  text-decoration: underline;
+}
+
 .episodes_list span {
    font-size: 10px;
    color: white;

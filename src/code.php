@@ -1,12 +1,6 @@
 <?php
 
-print_r($_POST);
-if(isset($_REQUEST['submit']))
-{
-print_r('sssssssssssssss');
      get_programmes($keyword);
-}
-
 /**
  *
  */
@@ -25,28 +19,25 @@ function get_programmes($keyword) {
   $output .='<ul>';
   foreach ($obj-> atoz->tleo_titles as $out) {
      if (!empty($out->title)) {
-       
-         if ($out->programme->type == 'episode') {
-
-             // Get parent programe
-             get_parent_program($out->programme->pid);
-         } elseif ($out->programme->type == 'brand') {
-          
-             $episodes = get_episodes ($out->programme->pid);
-        }
-         $output .= render_result ($out->programme->pid, $out->title, '', $out->programme->short_synopsis, $out->programme->image->pid, $out->programme->ownership->service->title, $episodes); 
+       if ($out->programme->type == 'episode') {
+         // Get parent programe
+           get_parent_program($out->programme->pid);
+       } elseif ($out->programme->type == 'brand') {
+          $episodes = get_episodes ($out->programme->pid);
+       }
+       $output .= render_result ($out->programme->pid, $out->title, '', $out->programme->short_synopsis, $out->programme->image->pid, $out->programme->ownership->service->title, $episodes); 
     }
   }
     $output .='</ul>';
-//  print_r($output);
-  return $output;
+  print_r($output);
+  //return $output;
 }
 
 /**
  *
  */
 function render_result ($pid, $brand_name, $episode_names, $short_synopi, $img, $service, $episodes) {
-  $output = '<li class="col-sm-12"><a target="_blank" href="http://www.bbc.co.uk/programmes/' . $pid . '">';
+  $output = '<li class="col-sm-12" id="programmes_li"><a target="_blank" href="http://www.bbc.co.uk/programmes/' . $pid . '">';
   $output .= '<div class="col-sm-3"><img class="img-responsive" src="https://ichef.bbci.co.uk/images/ic/480x270/' . $img . '.jpg" /></div>';
   $output .= '<div class="col-sm-9"><h4>' . $brand_name . '</h4>';
   $output .= '<span>' . $short_synopi . '</span><br /><br />';
@@ -56,6 +47,19 @@ function render_result ($pid, $brand_name, $episode_names, $short_synopi, $img, 
     $output .= "<br />" . $episodes;
   }
   $output .= '</div></a></li>';
+  
+  return $output;
+}
+
+/**
+ *
+ */
+function get_episode_component($episode_name, $short_synopi, $img) {
+  $output = '<li class="col-sm-12 main_li" id="episodes_li">';
+  $output .= '<div class="col-sm-3"><img class="img-responsive" src="https://ichef.bbci.co.uk/images/ic/480x270/' . $img . '.jpg" /></div>';
+  $output .= '<div class="col-sm-9"><h4>' . $episode_name . '</h4>';
+  $output .= '<span>' . $short_synopi . '</span><br /><br />';
+  $output .= '</div></li>';
   
   return $output;
 }
@@ -87,12 +91,13 @@ function get_episodes($pid) {
   curl_close($ch);
   $obj = json_decode($result);
 
-  $output = '<div class="episodes_list">';
-  $output .= '<h5>'. 'Episodes:' . '<h5>';
+  $output = '<h5 class="show_episodes">'. 'Show available episodes' . '</h5>';
+  $output .= '<div class="episodes_list"><ul>';
+
 
   foreach($obj->episodes as $episode) {
-      $output .= "<span>" . $episode->programme->title . ', </span>';
+    $output .= get_episode_component ($episode->programme->title, $episode->programme->short_synopsis, $episode->programme->image->pid); //"<span>" . $episode->programme->title . ', </span>';
   }
-    $output .= '</div>';
+    $output .= '</ul></div>';
   return $output;
 }
