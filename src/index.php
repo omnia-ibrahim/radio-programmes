@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <title>BBC radio - Programmes</title>
   <meta charset="utf-8">
   
 
@@ -38,13 +40,14 @@
 
      <h1> Search Results </h1>
      <div class='search'>
-         <form action="code.php" method="post">
-        <input id="search_input" class="search_input" type="search" placeholder="Search for a programme title" name="q">
+         <form method="post">
+        <input id="search_input" class="search_input_class" type="search" placeholder="Search for a programme title" name="q">
        <button class="search_button" type="submit" name='submit' value='submit'>
         </form>
      </div>
-
-        <?php include('code.php');?>
+       <div id="loading-image"> <img src='http://gora.se/wp-content/themes/gora//imgs/ajax-loader.gif' /> </div>
+       <div id='returned_result'> </div>
+        <?php //include('code.php');?>
   </div>
 
  <footer>

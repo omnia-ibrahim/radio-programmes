@@ -56,24 +56,50 @@ h4:hover {
     border-width: medium medium 1px;
     margin-top: 8px;
     padding-right: 8px;
+     margin-bottom: 20px;
 }
 
-.search_input {
-    background: transparent none repeat scroll 0 0;
-    border: medium none;
-    color: #efefef;
-    font-size: 1.2em;
-    padding: 8px;
+#search_input {
+  background: transparent none repeat scroll 0 0;
+  border: medium none;
+  color: #efefef;
+  font-size: 1.2em;
+  padding: 8px;
   display: inline-block;
-    width: 90%;
+  width: 95%;
+
+}
+
+.empty_result {
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+#loading-image {
+  display: none;
+  text-align: center;
+  padding: 10px;
+}
+
+#loading-image img {
+  width: 128px;
+  height: 128px;
 }
 
 .search_button {
-   background: transparent none repeat scroll 0 0;
     color: #efefef;
     display: inline-block;
     text-align: right;
-    width: 10%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: url("../search.png");
+}
+
+.episodes_list {
+  display: none;
 }
 
 .episodes_list h5, 
