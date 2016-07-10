@@ -52,6 +52,18 @@ Programmes A-Z
 
 ## Screenshots
 
-Inline-style: 
+1- Landing page: 
 ![Landing page](https://raw.githubusercontent.com/omnia-ibrahim/radio-programmes/master/screenshots/img1.jpg "Program landing page")
+
+2- Adding search keyword 'chris' and press search: 
+![Search ](https://raw.githubusercontent.com/omnia-ibrahim/radio-programmes/master/screenshots/img2.jpg "Searching string")
+
+3- Search results for keyword 'chris': 
+![Search results](https://raw.githubusercontent.com/omnia-ibrahim/radio-programmes/master/screenshots/img3.jpg "Search results")
+
+4- Expanding episodes: 
+![Expanding episodes](https://raw.githubusercontent.com/omnia-ibrahim/radio-programmes/master/screenshots/img4.jpg "Expanding episdoes")
+
+5- Searching for non-exist programme: 
+![no result](https://raw.githubusercontent.com/omnia-ibrahim/radio-programmes/master/screenshots/img5.jpg "No result")
 
