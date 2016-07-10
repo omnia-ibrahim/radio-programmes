@@ -49,3 +49,9 @@ Programmes A-Z
 - As an enhancement: the episodes could be retrieved when clicking on episodes not pre-loaded with all the programmes, but i couldn't make sure that all the programmes of type 'Brand' have episodes so i would have to do the call twice one to get if it has episodes and one to get the episodes itself. So based on the info i have this is much better performance wise because the call is done one time.
 
 - For the last scenario to get the results dynamically, I added a timer to search for results after 5 sec if the user stopped typing.
+
+## Screenshots
+
+Inline-style: 
+![Landing page](https://raw.githubusercontent.com/omnia-ibrahim/radio-programmes/master/screenshots/img1.jpg "Program landing page")
+
