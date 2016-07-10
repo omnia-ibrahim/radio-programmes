@@ -1,10 +1,12 @@
 <?php
+
   $keyword = $_POST['search'];
   if (!empty($keyword)) {
     get_programmes($keyword);
   }
+
 /**
- *
+ * Function to get list of programmes using a search string matching the keyword passed 
  */
 function get_programmes($keyword) {
 
@@ -42,7 +44,7 @@ function get_programmes($keyword) {
 }
 
 /**
- *
+ *  Function to render the result in nice HTML list
  */
 function render_result ($pid, $brand_name, $episode_names, $short_synopi, $img, $service, $episodes) {
   $output = '<li class="col-sm-12" id="programmes_li">';
@@ -60,7 +62,7 @@ function render_result ($pid, $brand_name, $episode_names, $short_synopi, $img, 
 }
 
 /**
- *
+ *  Function to render episodes in list style
  */
 function get_episode_component($pid, $episode_name, $short_synopi, $img) {
   $output = '<li class="col-sm-12 main_li" id="episodes_li"><a target="_blank" href="http://www.bbc.co.uk/programmes/' . $pid . '">';
@@ -72,7 +74,7 @@ function get_episode_component($pid, $episode_name, $short_synopi, $img) {
 }
 
 /**
- *
+ *  Function to get parent of episode using episode id
  */
 function get_parent_program($episode_id) {
   $ch = curl_init();
@@ -83,11 +85,10 @@ function get_parent_program($episode_id) {
   curl_close($ch);
 
   $obj = json_decode($result);
- // print_r($obj);
 }
 
 /**
- *
+ * Function to get the episodes of certain programme id
  */
 function get_episodes($pid) {
   $ch = curl_init();

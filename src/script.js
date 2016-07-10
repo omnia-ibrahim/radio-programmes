@@ -44,28 +44,35 @@ $(function() {
     * User is "finished typing,or search button is clicked" search for the keyword
     */
    function searchProgrammes () {
-      
+     var keyword = $('#search_input').val();
+     var trimmed = '';
+
      $('#search_input').blur();
      clearTimeout(typingTimer);
-     if($('#search_input').val() == ''){
-        alert('Search field can not be left blank');
-      return;
-    }
 
-    $('#loading-image').show();
+    // Check if string is empty
+    if(keyword == ''){
+        alert('Search field can not be left blank');
+       return;
+     }
+   
+     // Replace every special character and keep only alphanumeric characters and trim them as well
+     trimmed = keyword.replace(/[^a-z0-9\s]/gi, '').trim();
+
+     $('#loading-image').show();
 
     $.ajax({
       type: "POST",
       async: true,
-      data: ({search: $('#search_input').val()}),
+      data: ({search: trimmed}),
       url: "code.php", //Relative or absolute path to response.php file
       success: function(data) {
-         $('.page_title').html('Search results for "' + $('#search_input').val() + '"');
+         $('.page_title').html('Search results for "' + trimmed + '"');
          $('#returned_result').html(data);
        
       },
        complete: function(){
-
+          // Hide loading image
           $('#loading-image').hide();
       }
     });

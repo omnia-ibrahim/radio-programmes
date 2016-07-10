@@ -42,7 +42,7 @@ function get_programmes($keyword) {
 }
 
 /**
- *
+ *  Function to render the result in nice HTML list
  */
 function render_result ($pid, $brand_name, $episode_names, $short_synopi, $img, $service, $episodes) {
   $output = '<li class="col-sm-12" id="programmes_li">';
@@ -60,14 +60,14 @@ function render_result ($pid, $brand_name, $episode_names, $short_synopi, $img, 
 }
 
 /**
- *
+ *  Function to render episodes in list style
  */
-function get_episode_component($episode_name, $short_synopi, $img) {
-  $output = '<li class="col-sm-12 main_li" id="episodes_li">';
+function get_episode_component($pid, $episode_name, $short_synopi, $img) {
+  $output = '<li class="col-sm-12 main_li" id="episodes_li"><a target="_blank" href="http://www.bbc.co.uk/programmes/' . $pid . '">';
   $output .= '<div class="col-sm-3"><img class="img-responsive" src="https://ichef.bbci.co.uk/images/ic/480x270/' . $img . '.jpg" /></div>';
   $output .= '<div class="col-sm-9"><h4>' . $episode_name . '</h4>';
   $output .= '<span>' . $short_synopi . '</span><br /><br />';
-  $output .= '</div></li>'; 
+  $output .= '</div></a></li>'; 
   return $output;
 }
 
@@ -103,7 +103,7 @@ function get_episodes($pid) {
     $output .= '<div class="episodes_list"><ul>';
 
     foreach($obj->episodes as $episode) {
-      $output .= get_episode_component ($episode->programme->title, $episode->programme->short_synopsis, $episode->programme->image->pid); //"<span>" . $episode->programme->title . ', </span>';
+      $output .= get_episode_component ($episode->programme->pid, $episode->programme->title, $episode->programme->short_synopsis, $episode->programme->image->pid); //"<span>" . $episode->programme->title . ', </span>';
     }
   
     $output .= '</ul></div>';
