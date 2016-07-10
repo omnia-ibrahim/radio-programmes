@@ -38,11 +38,11 @@
    </div>
   <div class='container' id='main_content'>
 
-     <h1> Search Results </h1>
+     <h1 class='page_title'> Search Programmes </h1>
      <div class='search'>
          <form method="post">
         <input id="search_input" class="search_input_class" type="search" placeholder="Search for a programme title" name="q">
-       <button class="search_button" type="submit" name='submit' value='submit'>
+       <button class="search_button" type="submit" name='search_submit' value='search_submit'>
         </form>
      </div>
        <div id="loading-image"> <img src='http://gora.se/wp-content/themes/gora//imgs/ajax-loader.gif' /> </div>
